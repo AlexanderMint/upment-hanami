@@ -1,0 +1,6 @@
+/public/assets*
+/tmp
+.idea
+.env*
+
+!**/*.example

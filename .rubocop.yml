@@ -1,0 +1,39 @@
+AllCops:
+  TargetRubyVersion: 2.4
+#  Exclude:
+#    - bin/*
+#    - vendor/bundle/**/*
+#    - provision/**/*
+
+Rails:
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - apps/*/application.rb
+
+#Metrics/MethodLength:
+#  Max: 30
+
+Style/AndOr:
+  Enabled: false
+
+#Metrics/LineLength:
+#  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+#Style/LambdaCall:
+#  Enabled: false
+
+#Style/FrozenStringLiteralComment:
+#  Enabled: false
+
+#Style/BlockDelimiters:
+#  Exclude:
+#    - spec/**/*_spec.rb
+#
+#Lint/AmbiguousBlockAssociation:
+#  Exclude:
+#    - spec/**/*_spec.rb

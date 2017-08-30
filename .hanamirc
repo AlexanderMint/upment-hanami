@@ -1,0 +1,4 @@
+project=upment
+architecture=container
+test=minitest
+template=erb
