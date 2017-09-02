@@ -1,12 +1,12 @@
 AllCops:
   TargetRubyVersion: 2.4
-#  Exclude:
-#    - bin/*
-#    - vendor/bundle/**/*
-#    - provision/**/*
 
 Rails:
   Enabled: true
+
+Metrics/AbcSize:
+  Exclude:
+    - apps/*/graphql/**/*.rb
 
 Metrics/BlockLength:
   Exclude:
@@ -18,11 +18,18 @@ Metrics/BlockLength:
 Style/AndOr:
   Enabled: false
 
-#Metrics/LineLength:
-#  Enabled: false
+Metrics/LineLength:
+  Max: 110
 
 Style/Documentation:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Lambda:
+  Exclude:
+    - apps/*/graphql/**/*.rb
 
 #Style/LambdaCall:
 #  Enabled: false
@@ -37,3 +44,5 @@ Style/Documentation:
 #Lint/AmbiguousBlockAssociation:
 #  Exclude:
 #    - spec/**/*_spec.rb
+
+

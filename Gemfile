@@ -2,11 +2,11 @@
 
 source 'https://rubygems.org'
 
+gem 'graphql'
 gem 'hanami', '~> 1.0'
 gem 'hanami-model', '~> 1.0'
-gem 'rake'
-
 gem 'pg'
+gem 'rake'
 
 group :development do
   gem 'rubocop'

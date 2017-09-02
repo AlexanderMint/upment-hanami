@@ -12,9 +12,7 @@ Hanami.configure do
   model do
     adapter :sql, ENV['DATABASE_URL']
 
-    ##
     # Migrations
-    #
     migrations 'db/migrations'
     schema     'db/schema.sql'
   end
@@ -22,13 +20,11 @@ Hanami.configure do
   mailer do
     root 'lib/upment/mailers'
 
-    # See http://hanamirb.org/guides/mailers/delivery
     delivery :test
   end
 
   environment :development do
-    # See: http://hanamirb.org/guides/projects/logging
-    logger level: :debug
+    logger level: :info
   end
 
   environment :production do

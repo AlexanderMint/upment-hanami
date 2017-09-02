@@ -1,26 +1,21 @@
 # frozen_string_literal: true
 
 require 'hanami/helpers'
-require 'hanami/assets'
 
 module Api
   class Application < Hanami::Application
     configure do
-      # Base
       root __dir__
+      load_paths << %w[controllers graphql]
 
-      load_paths << %w[controllers views]
+      sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
 
       # HTTP
-      host 'lvh.me'
+      host 'api.lvh.me'
       routes 'config/routes'
 
-      default_request_format :json
+      default_request_format :html
       default_response_format :json
-
-      # TEMPLATES
-      templates 'templates'
-      layout :application
 
       # SECURITY
       security.x_frame_options 'DENY'
@@ -42,11 +37,6 @@ module Api
         frame-src 'self';
         media-src 'self'
       )
-
-      view.prepare do
-        include Hanami::Helpers
-        include Api::Assets::Helpers
-      end
     end
 
     # DEVELOPMENT
