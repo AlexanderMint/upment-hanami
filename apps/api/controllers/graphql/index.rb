@@ -7,5 +7,11 @@ module Api::Controllers::Graphql
                                  variables: params[:vairables] || {},
                                  context: { user_id: session[:user_id] }).to_json
     end
+
+    private
+
+    def verify_csrf_token?
+      false
+    end
   end
 end

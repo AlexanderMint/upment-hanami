@@ -11,11 +11,12 @@ module Api
       sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
 
       # HTTP
-      host 'api.lvh.me'
+      host 'api.up.com'
       routes 'config/routes'
 
       default_request_format :html
       default_response_format :json
+      body_parsers :json
 
       # SECURITY
       security.x_frame_options 'DENY'
@@ -37,11 +38,17 @@ module Api
         frame-src 'self';
         media-src 'self'
       )
+
+      controller.default_headers 'Access-Control-Request-Method' => 'POST, OPTIONS'
+      controller.default_headers 'Access-Control-Allow-Headers' => 'Content-Type'
     end
+
 
     # DEVELOPMENT
     configure :development do
       handle_exceptions false
+
+      controller.default_headers 'Access-Control-Allow-Origin' => '*'
     end
 
     # TEST
@@ -52,8 +59,10 @@ module Api
     # PRODUCTION
     configure :production do
       scheme 'https'
-      host   'upment.ru'
+      host   'api.upment.com'
       port   443
+
+      controller.default_headers 'Access-Control-Allow-Origin' => 'https://upment.com'
     end
   end
 end
