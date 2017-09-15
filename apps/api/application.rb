@@ -43,7 +43,6 @@ module Api
       controller.default_headers 'Access-Control-Allow-Headers' => 'Content-Type'
     end
 
-
     # DEVELOPMENT
     configure :development do
       handle_exceptions false

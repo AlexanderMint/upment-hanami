@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api::Controllers::Graphql
   class Index
     include Api::Action
