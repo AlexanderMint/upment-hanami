@@ -3,10 +3,7 @@
 module Types
   MutationType = GraphQL::ObjectType.define do
     name 'Mutation'
-    description 'Actions for adding, changing and deleting'
 
-    # field :createUser, field: Mutations::CreateUserMutation.field
-    # field :editUser, field: Mutations::EditUserMutation.field
-    # field :deleteUser, field: Mutations::DeleteUserMutation.field
+    field :signUp, Resolvers::Auth::SignUp.build
   end
 end

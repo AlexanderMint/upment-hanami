@@ -1,0 +1,3 @@
+en:
+  errors:
+    email?: "must be an email"
