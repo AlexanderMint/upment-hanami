@@ -2,5 +2,6 @@
 /tmp
 .idea
 .env*
+.byebug_history
 
 !**/*.example

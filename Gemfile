@@ -2,11 +2,11 @@
 
 source 'https://rubygems.org'
 
-gem 'graphql'
+gem 'graphql', '~> 1.7'
 gem 'hanami', '1.1.0.beta1'
 gem 'hanami-model', '1.1.0.beta1'
-gem 'pg'
-gem 'rake'
+gem 'pg', '0.21'
+gem 'rake', '~> 12.1'
 
 group :development do
   gem 'rubocop'
@@ -17,9 +17,10 @@ group :test, :development do
   gem 'dotenv', '~> 2.0'
 
   ### Debugger ###
-  gem 'pry'
-  gem 'pry-byebug'
-  gem 'pry-rescue'
+  # gem 'pry'
+  # gem 'pry-byebug'
+  # gem 'pry-rescue'
+  gem 'byebug'
 end
 
 group :test do
