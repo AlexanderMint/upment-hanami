@@ -2,7 +2,7 @@
 
 module Types
   module Enum
-    Order = GraphQL::EnumType.define do
+    OrderType = GraphQL::EnumType.define do
       name 'Order'
       description 'Sorting order'
 

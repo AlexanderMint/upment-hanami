@@ -17,7 +17,7 @@ module Fetch
         end
 
         argument :order do
-          type Types::Enum::Order
+          type Types::Enum::OrderType
           description 'Sorting order'
           default_value 'asc'
         end

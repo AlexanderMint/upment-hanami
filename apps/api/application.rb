@@ -15,7 +15,7 @@ module Api
       host 'api.up.com'
       routes 'config/routes'
 
-      default_request_format :html
+      default_request_format :json
       default_response_format :json
       body_parsers :json
 

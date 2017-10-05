@@ -4,7 +4,7 @@
 module Hanami
   module Validations
     def initialize(input = {})
-      @input = JSON.parse(JSON[input.to_h], symbolize_names: true)
+      @input = Hanami::Utils::Hash.deep_symbolize(input.to_h)
     end
   end
 end
