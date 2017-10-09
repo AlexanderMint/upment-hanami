@@ -5,10 +5,10 @@ module Types
     name 'User'
     description 'A User'
 
-    field :id, types.ID
+    field :id, !types.ID
     field :firstName, types.String, property: :first_name
     field :lastName, types.String, property: :last_name
-    field :email, types.String
+    field :email, !types.String
     field :phone, types.Int
     field :createdAt, DateTimeType, property: :created_at
   end

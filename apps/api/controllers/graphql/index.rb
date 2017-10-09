@@ -24,7 +24,8 @@ module Api::Controllers::Graphql
     end
 
     def restructure_variables(params)
-      @variables = Hanami::Utils::Hash.new(params[:variables]).stringify!
+      @variables = Hanami::Utils::Hash.new(params[:variables] || {})
+      @variables.stringify!
     end
 
     def verify_csrf_token?

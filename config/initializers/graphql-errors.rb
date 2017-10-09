@@ -4,7 +4,7 @@ module GraphQL
   class ExecutionError < GraphQL::Error
     attr_accessor :message
 
-    def initialize(message, ast_node: nil)
+    def initialize(message)
       @message = message
     end
   end

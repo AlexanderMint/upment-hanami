@@ -8,6 +8,11 @@ gem 'hanami-model', '1.1.0.beta3'
 gem 'pg', '0.21'
 gem 'rake', '~> 12.1'
 
+gem 'rom-repository'
+
+### Security ###
+gem 'bcrypt'
+
 group :development do
   gem 'rubocop'
   gem 'shotgun'

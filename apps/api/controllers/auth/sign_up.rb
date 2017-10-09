@@ -6,9 +6,12 @@ module Api::Controllers::Auth
     predicates Validations::Email
 
     validations do
-      required(:first_name) { filled? & str? & size?(2..64) }
-      required(:last_name) { filled? & str? & size?(2..64) }
       required(:email) { email? }
+      required(:password) { filled? & str? & size?(6..60) }
+
+      optional(:first_name) { str? & size?(2..32) }
+      optional(:last_name) { str? & size?(2..32) }
+      optional(:phone) { int? }
     end
 
     def call
@@ -22,9 +25,14 @@ module Api::Controllers::Auth
     private
 
     def create_user
-      UserRepository.new.create(validate.output)
+      changeset = repository.changeset(NewUserChangeset).map(:add_timestamps).data(validate.output)
+      repository.create(changeset)
     rescue Hanami::Model::UniqueConstraintViolationError
       GraphQL::ExecutionError.new(email: ['not unique'])
+    end
+
+    def repository
+      @repository ||= UserRepository.new
     end
   end
 end
