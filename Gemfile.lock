@@ -49,7 +49,7 @@ GEM
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.12.0)
-    graphql (1.7.3)
+    graphql (1.7.4)
     hanami (1.1.0.beta3)
       bundler
       concurrent-ruby (~> 1.0)
