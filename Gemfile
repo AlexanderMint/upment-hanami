@@ -12,6 +12,7 @@ gem 'rom-repository'
 
 ### Security ###
 gem 'bcrypt', require: false
+gem 'jwt'
 
 group :development do
   gem 'rubocop'
