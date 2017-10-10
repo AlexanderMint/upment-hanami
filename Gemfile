@@ -11,7 +11,7 @@ gem 'rake', '~> 12.1'
 gem 'rom-repository'
 
 ### Security ###
-gem 'bcrypt'
+gem 'bcrypt', require: false
 
 group :development do
   gem 'rubocop'

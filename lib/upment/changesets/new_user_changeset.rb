@@ -2,6 +2,7 @@
 
 require 'securerandom'
 require 'digest/sha1'
+require 'bcrypt'
 
 class NewUserChangeset < ROM::Changeset::Create
   map do |tuple|
