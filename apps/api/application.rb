@@ -9,8 +9,6 @@ module Api
       load_paths << %w[controllers]
       load_paths << %w[graphql/utils graphql/types graphql/resovers graphql]
 
-      sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
-
       # HTTP
       host 'api.up.com'
       routes 'config/routes'

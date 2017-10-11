@@ -11,8 +11,8 @@ Hanami::Model.migration do
       column :phone, Integer, unique: true
 
       column :password, String, null: false, unique: true, size: 60
-      column :confirmation_token, String, unique: true, size: 32
-      column :reset_password_token, String, unique: true, size: 32
+      column :confirmation_token, String, unique: true, size: 36
+      column :reset_password_token, String, unique: true, size: 36
 
       column :created_at, DateTime, null: false
       column :updated_at, DateTime, null: false

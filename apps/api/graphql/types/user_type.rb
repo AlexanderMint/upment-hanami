@@ -11,5 +11,8 @@ module Types
     field :email, !types.String
     field :phone, types.Int
     field :createdAt, DateTimeType, property: :created_at
+
+    field :refreshToken, types.String, property: :refresh_token
+    field :accessToken, types.String, property: :access_token
   end
 end

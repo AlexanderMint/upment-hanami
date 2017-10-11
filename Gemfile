@@ -11,11 +11,11 @@ gem 'rake', '~> 12.1'
 gem 'rom-repository'
 
 ### Security ###
-gem 'bcrypt', require: false
+gem 'bcrypt'
 gem 'jwt'
 
 group :development do
-  gem 'rubocop'
+  gem 'rubocop', require: false
   gem 'shotgun'
 end
 

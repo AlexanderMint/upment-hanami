@@ -18,17 +18,16 @@ module Api::Controllers::Auth
       if validate.success?
         create_user
       else
-        GraphQL::ExecutionError.new(validate.errors)
+        GraphQL::ExecutionError.new('Error validate', options: validate.errors)
       end
     end
 
     private
 
     def create_user
-      changeset = repository.changeset(NewUserChangeset).map(:add_timestamps).data(validate.output)
-      repository.create(changeset)
+      repository.create_with_tokens(validate.output)
     rescue Hanami::Model::UniqueConstraintViolationError
-      GraphQL::ExecutionError.new(email: ['not unique'])
+      GraphQL::ExecutionError.new('Error validate', options: { email: ['not unique'] })
     end
 
     def repository

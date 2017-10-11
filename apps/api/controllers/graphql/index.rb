@@ -13,8 +13,7 @@ module Api::Controllers::Graphql
 
     def call(params)
       status 200, Schema.execute(params[:query],
-                                 variables: @variables,
-                                 context: { user_id: session[:user_id] }).to_json
+                                 variables: @variables).to_json
     end
 
     private
