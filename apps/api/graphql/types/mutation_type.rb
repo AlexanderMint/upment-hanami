@@ -5,5 +5,6 @@ module Types
     name 'Mutation'
 
     field :signUp, Resolvers::Auth::SignUp.build
+    field :signIn, Resolvers::Auth::SignIn.build
   end
 end

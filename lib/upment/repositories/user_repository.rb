@@ -5,6 +5,10 @@ class UserRepository < Hanami::Repository
     has_many :refresh_tokens
   end
 
+  def find_by(data)
+    users.where(data).one
+  end
+
   def add_refresh_token(user, token = random_token)
     assoc(:refresh_tokens, user).add(token: token)
   end
@@ -16,8 +20,7 @@ class UserRepository < Hanami::Repository
       user = create(user_changeset)
       token = add_refresh_token(user).token
 
-      # Shit code
-      User.new user.to_h.merge(refresh_token: token)
+      User.new(refresh_token: token, **user)
     end
   end
 
