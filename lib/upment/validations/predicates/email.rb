@@ -12,7 +12,7 @@ module Validations
       EMAIL_FORMAT = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
       predicate :email? do |current|
-        current.empty? || current.match(EMAIL_FORMAT)
+        current.match?(EMAIL_FORMAT)
       end
     end
   end

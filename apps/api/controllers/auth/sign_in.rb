@@ -3,18 +3,19 @@
 module Api::Controllers::Auth
   class SignIn
     include Hanami::Validations
+    include Api::GraphQL
     predicates Validations::Predicates::Email
 
     validations do
-      required(:email) { filled? & email? }
-      required(:password) { filled? }
+      required(:email) { filled? & str? & email? }
+      required(:password) { filled? & str? }
     end
 
     def call
       if validate.success?
         find_user_and_token(validate.output)
       else
-        error(options: validate.errors)
+        graphql_error(options: validate.errors)
       end
     end
 
@@ -22,12 +23,12 @@ module Api::Controllers::Auth
 
     def find_user_and_token(email:, password:)
       user = repository.find_by(email: email)
-      return error(message: 'The user is not found') unless user
+      return graphql_error(message: 'The user is not found') unless user
 
       if correct_password?(user.password, password)
         create_refresh_token(user)
       else
-        error(options: { password: ['invalid'] })
+        graphql_error(options: { password: ['invalid'] })
       end
     end
 
@@ -42,10 +43,6 @@ module Api::Controllers::Auth
 
     def repository
       @repository ||= UserRepository.new
-    end
-
-    def error(message: '', options: {})
-      GraphQL::ExecutionError.new(message, options: options)
     end
   end
 end

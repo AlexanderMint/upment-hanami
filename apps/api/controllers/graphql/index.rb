@@ -8,7 +8,7 @@ module Api::Controllers::Graphql
 
     params do
       required(:query) { filled? & str? }
-      optional(:variables) { none? | type?(Hash) }
+      optional(:variables).maybe(:hash?)
     end
 
     def call(params)

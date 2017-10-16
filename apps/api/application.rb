@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'hanami/helpers'
+require_relative 'controllers/graphql'
 
 module Api
   class Application < Hanami::Application
@@ -8,6 +9,10 @@ module Api
       root __dir__
       load_paths << %w[controllers]
       load_paths << %w[graphql/utils graphql/types graphql/resovers graphql]
+
+      controller.prepare do
+        include Api::GraphQL
+      end
 
       # HTTP
       host 'api.up.com'
@@ -57,10 +62,10 @@ module Api
     # PRODUCTION
     configure :production do
       scheme 'https'
-      host   'api.upment.com'
+      host   'api.example.com'
       port   443
 
-      controller.default_headers 'Access-Control-Allow-Origin' => 'https://upment.com'
+      controller.default_headers 'Access-Control-Allow-Origin' => 'https://example.com'
     end
   end
 end
