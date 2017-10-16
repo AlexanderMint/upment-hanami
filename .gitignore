@@ -1,5 +1,4 @@
-/public/assets*
-/tmp
+tmp
 .idea
 .env*
 .byebug_history
