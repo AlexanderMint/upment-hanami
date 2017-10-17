@@ -3,7 +3,6 @@
 module Api::Controllers::Graphql
   class Index
     include Api::Action
-    before :validate_params
     before :restructure_variables
 
     params do
@@ -12,15 +11,13 @@ module Api::Controllers::Graphql
     end
 
     def call(params)
+      halt 400 unless params.valid?
+
       status 200, Schema.execute(params[:query],
                                  variables: @variables).to_json
     end
 
     private
-
-    def validate_params(params)
-      halt 400 unless params.valid?
-    end
 
     def restructure_variables(params)
       @variables = Hanami::Utils::Hash.new(params[:variables] || {})
