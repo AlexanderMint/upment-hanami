@@ -3,6 +3,9 @@
 module Resolvers::Auth::SignIn
   def self.build
     GraphQL::Field.define do
+      name 'SignIn'
+      description 'User authorization'
+
       argument :email, !types.String
       argument :password, !types.String
 

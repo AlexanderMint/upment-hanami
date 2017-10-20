@@ -3,6 +3,9 @@
 module Resolvers::Auth::SignUp
   def self.build # rubocop:disable Metrics/MethodLength
     GraphQL::Field.define do
+      name 'SignUp'
+      description 'User registration'
+
       argument :email, !types.String
       argument :password, !types.String
 

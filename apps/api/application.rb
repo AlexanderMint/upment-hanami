@@ -8,7 +8,7 @@ module Api
     configure do
       root __dir__
       load_paths << %w[controllers]
-      load_paths << %w[graphql/utils graphql/types graphql/resovers graphql]
+      load_paths << %w[graphql/utils graphql/types graphql/fields graphql/resovers graphql]
 
       controller.prepare do
         include Api::GraphQL
@@ -44,7 +44,8 @@ module Api
       )
 
       controller.default_headers 'Access-Control-Request-Method' => 'POST, OPTIONS'
-      controller.default_headers 'Access-Control-Allow-Headers' => 'Content-Type'
+      controller.default_headers 'Access-Control-Allow-Headers' => 'Content-Type, Authorization'
+      controller.default_headers 'Access-Control-Expose-Headers' => 'Authorization'
     end
 
     # DEVELOPMENT

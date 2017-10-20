@@ -13,8 +13,12 @@ module Api::Controllers::Graphql
     def call(params)
       halt 400 unless params.valid?
 
+      jwt = Authentication::Tokens.new(request.get_header('HTTP_AUTHORIZATION') || '')
+      headers['authorization'] = jwt.new_header_token if jwt.authorized?
+
       status 200, Schema.execute(params[:query],
-                                 variables: @variables).to_json
+                                 variables: @variables,
+                                 context: { current_user: jwt.user }).to_json
     end
 
     private

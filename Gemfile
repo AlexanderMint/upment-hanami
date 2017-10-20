@@ -23,10 +23,10 @@ group :test, :development do
   gem 'dotenv', '~> 2.0'
 
   ### Debugger ###
-  # gem 'pry'
-  # gem 'pry-byebug'
-  # gem 'pry-rescue'
-  gem 'byebug'
+  gem 'byebug' # fix call in action#call
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-rescue'
 end
 
 group :test do

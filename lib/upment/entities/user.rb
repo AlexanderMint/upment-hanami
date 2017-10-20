@@ -23,7 +23,7 @@ class User < Hanami::Entity
 
   def access_token
     JWT.encode({ sub: id,
-                 exp: Time.new.to_i + 600,
+                 exp: Time.new.to_i + 6_000,
                  role: :client }, ENV['JWT_SECRET'])
   end
 end

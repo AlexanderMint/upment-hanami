@@ -24,10 +24,6 @@ class UserRepository < Hanami::Repository
     end
   end
 
-  # def find_with_refresh_token(token)
-  #   aggregate(:refresh_tokens).where(token: token).as(User).one
-  # end
-
   private
 
   def random_token
