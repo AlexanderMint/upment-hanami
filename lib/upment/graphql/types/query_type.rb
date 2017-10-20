@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  QueryType = GraphQL::ObjectType.define do
+  QueryType ||= GraphQL::ObjectType.define do
     name 'Query'
 
     # /graphql?query={user(id: 1){ id, first_name, last_name }}

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Fields
-  CurrentUser = GraphQL::Field.define do
+  CurrentUser ||= GraphQL::Field.define do
     name 'CurrentUser'
     description 'Current user'
 

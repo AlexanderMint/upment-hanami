@@ -9,6 +9,7 @@ gem 'pg', '0.21'
 gem 'rake', '~> 12.1'
 
 gem 'rom-repository'
+gem 'require_all'
 
 ### Security ###
 gem 'bcrypt'

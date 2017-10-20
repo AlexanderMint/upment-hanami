@@ -138,6 +138,7 @@ GEM
     rainbow (2.2.2)
       rake
     rake (12.1.0)
+    require_all (1.4.0)
     rom (3.3.3)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.3)
@@ -197,6 +198,7 @@ DEPENDENCIES
   pry-byebug
   pry-rescue
   rake (~> 12.1)
+  require_all
   rom-repository
   rubocop
   shotgun

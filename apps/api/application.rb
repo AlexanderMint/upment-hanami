@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'hanami/helpers'
 require_relative 'controllers/graphql'
 
 module Api
@@ -8,7 +7,6 @@ module Api
     configure do
       root __dir__
       load_paths << %w[controllers]
-      load_paths << %w[graphql/utils graphql/types graphql/fields graphql/resovers graphql]
 
       controller.prepare do
         include Api::GraphQL

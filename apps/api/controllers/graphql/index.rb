@@ -13,7 +13,6 @@ module Api::Controllers::Graphql
     def call(params)
       halt 400 unless params.valid?
 
-      jwt = Authentication::Tokens.new(request.get_header('HTTP_AUTHORIZATION') || '')
       headers['authorization'] = jwt.new_header_token if jwt.authorized?
 
       status 200, Schema.execute(params[:query],
@@ -22,6 +21,10 @@ module Api::Controllers::Graphql
     end
 
     private
+
+    def jwt
+      @jwt ||= Authentication::Tokens.new(request.get_header('HTTP_AUTHORIZATION') || '')
+    end
 
     def restructure_variables(params)
       @variables = Hanami::Utils::Hash.new(params[:variables] || {})
