@@ -4,9 +4,9 @@ AllCops:
 Rails:
   Enabled: true
 
-Metrics/AbcSize:
-  Exclude:
-    - apps/*/graphql/**/*.rb
+#Metrics/AbcSize:
+#  Exclude:
+#    - apps/*/graphql/**/*.rb
 
 Metrics/BlockLength:
   Exclude:
@@ -29,7 +29,7 @@ Style/ClassAndModuleChildren:
 
 Style/Lambda:
   Exclude:
-    - apps/*/graphql/**/*.rb
+    - lib/*/graphql/**/*.rb
 
 #Style/LambdaCall:
 #  Enabled: false

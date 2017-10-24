@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+require_relative 'date_time_type'
+
 module Types
-  UserType ||= GraphQL::ObjectType.define do
+  USER_TYPE = GraphQL::ObjectType.define do
     name 'User'
     description 'A User'
 
@@ -10,7 +12,7 @@ module Types
     field :lastName, types.String, property: :last_name
     field :email, !types.String
     field :phone, types.Int
-    field :createdAt, DateTimeType, property: :created_at
+    field :createdAt, DATE_TIME_TYPE, property: :created_at
 
     field :refreshToken, types.String, property: :refresh_token
     field :accessToken, types.String, property: :access_token

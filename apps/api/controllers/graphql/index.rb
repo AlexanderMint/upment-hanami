@@ -15,7 +15,7 @@ module Api::Controllers::Graphql
 
       headers['authorization'] = jwt.new_header_token if jwt.authorized?
 
-      status 200, Schema.execute(params[:query],
+      status 200, SCHEMA.execute(params[:query],
                                  variables: @variables,
                                  context: { current_user: jwt.user }).to_json
     end

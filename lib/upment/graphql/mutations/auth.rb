@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module Resolvers
+module Mutations
   module Auth; end
 end

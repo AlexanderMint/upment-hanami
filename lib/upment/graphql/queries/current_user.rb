@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-module Fields
-  CurrentUser ||= GraphQL::Field.define do
+require_relative '../types/user_type'
+
+module Queries
+  CURRENT_USER = GraphQL::Field.define do
     name 'CurrentUser'
     description 'Current user'
 
-    type Types::UserType
+    type Types::USER_TYPE
     resolve ->(_object, _args, ctx) do
       ctx[:current_user]
     end

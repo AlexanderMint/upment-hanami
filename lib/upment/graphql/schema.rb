@@ -1,7 +1,9 @@
 # frozen_string_literal: true
-require_rel 'utils', 'types', 'fields', 'resovers', '../repositories'
 
-Schema = GraphQL::Schema.define do
-  query Types::QueryType
-  mutation Types::MutationType
+require_relative 'queries'
+require_relative 'mutations'
+
+SCHEMA = GraphQL::Schema.define do
+  query Queries::SCHEMA
+  mutation Mutations::SCHEMA
 end
