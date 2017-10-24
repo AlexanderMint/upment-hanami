@@ -6,5 +6,7 @@ module Mutations
 
     field :signUp, Auth::SIGN_UP
     field :signIn, Auth::SIGN_IN
+
+    field :updateUser, User::UPDATE
   end
 end
