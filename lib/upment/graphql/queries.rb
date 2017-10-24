@@ -3,7 +3,7 @@
 require_relative '../repositories/user_repository'
 
 module Queries
-  SCHEMA = GraphQL::ObjectType.define do
+  SCHEMA ||= GraphQL::ObjectType.define do
     name 'Query'
 
     field :user, function: Functions::FindRecord.new(model: UserRepository, type: Types::USER_TYPE)

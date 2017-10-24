@@ -3,7 +3,7 @@
 require_relative 'date_time_type'
 
 module Types
-  USER_TYPE = GraphQL::ObjectType.define do
+  USER_TYPE ||= GraphQL::ObjectType.define do
     name 'User'
     description 'A User'
 

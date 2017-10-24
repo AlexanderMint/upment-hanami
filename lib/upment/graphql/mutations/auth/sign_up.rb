@@ -2,7 +2,7 @@
 
 module Mutations
   module Auth
-    SIGN_UP = GraphQL::Field.define do
+    SIGN_UP ||= GraphQL::Field.define do
       name 'SignUp'
       description 'User registration'
 

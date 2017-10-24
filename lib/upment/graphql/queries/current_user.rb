@@ -3,7 +3,7 @@
 require_relative '../types/user_type'
 
 module Queries
-  CURRENT_USER = GraphQL::Field.define do
+  CURRENT_USER ||= GraphQL::Field.define do
     name 'CurrentUser'
     description 'Current user'
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Mutations
-  SCHEMA = GraphQL::ObjectType.define do
+  SCHEMA ||= GraphQL::ObjectType.define do
     name 'Mutation'
 
     field :signUp, Auth::SIGN_UP

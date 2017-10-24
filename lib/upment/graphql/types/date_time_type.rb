@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  DATE_TIME_TYPE = GraphQL::ScalarType.define do
+  DATE_TIME_TYPE ||= GraphQL::ScalarType.define do
     name 'DateTime'
 
     coerce_input ->(value, _ctx) { Time.zone.parse(value) }
