@@ -7,7 +7,7 @@ module Types
     name 'User'
     description 'A User'
 
-    field :id, !types.ID
+    field :id, !types.Int
     field :firstName, types.String, property: :first_name
     field :lastName, types.String, property: :last_name
     field :email, !types.String
