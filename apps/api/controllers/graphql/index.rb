@@ -27,6 +27,7 @@ module Api::Controllers::Graphql
     end
 
     def restructure_variables(params)
+      # Fix: https://github.com/rmosolgo/graphql-ruby/issues/986#issuecomment-333886921
       @variables = Hanami::Utils::Hash.new(params[:variables] || {})
       @variables.stringify!
     end
