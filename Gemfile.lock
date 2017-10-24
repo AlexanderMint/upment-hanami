@@ -5,7 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.3.0)
     bcrypt (3.1.11)
-    binding_of_caller (0.7.2)
+    binding_of_caller (0.7.3)
       debug_inspector (>= 0.0.1)
     byebug (9.1.0)
     capybara (2.15.4)
