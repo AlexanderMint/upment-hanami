@@ -1,6 +1,9 @@
-# upment-hanami
+Upment hanami
+-----------------------
 
-### Examples:
+[![Coverage Status](https://coveralls.io/repos/github/AlexanderMint/upment-hanami/badge.svg?branch=master)](https://coveralls.io/github/AlexanderMint/upment-hanami?branch=master)
+
+#### Examples:
 
 Users
 
