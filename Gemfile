@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 
 gem 'graphql', '~> 1.7'
-gem 'hanami', '1.1.0.rc1'
-gem 'hanami-model', '1.1.0.rc1'
+gem 'hanami', '1.1.0'
+gem 'hanami-model', '1.1.0'
 gem 'pg', '0.21'
 gem 'rake', '~> 12.1'
 
