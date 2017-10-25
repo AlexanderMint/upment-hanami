@@ -1,0 +1,27 @@
+machine:
+  ruby:
+    version: 2.4.2
+  environment:
+    HANAMI_ENV: test
+
+checkout:
+  post:
+    - cp .env.test.example .env.test
+
+dependencies:
+  pre:
+    - bundler config without production:development:staging
+
+database:
+  override:
+    - bundle exec hanami db prepare
+    - bundle exec hanami db migrate
+
+test:
+  override:
+    - bundle exec rubocop
+    - bundle exec rspec
+
+notify:
+  webhooks:
+    - url: https://coveralls.io/webhook?repo_token=${COVERALLS_REPO_TOKEN}

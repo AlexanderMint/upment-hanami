@@ -15,12 +15,12 @@ gem 'bcrypt'
 gem 'jwt'
 
 group :development do
-  gem 'rubocop', require: false
   gem 'shotgun'
 end
 
 group :test, :development do
   gem 'dotenv', '~> 2.0'
+  gem 'rubocop', require: false
 
   ### Debugger ###
   gem 'byebug' # fix call in action#call
@@ -35,9 +35,9 @@ group :test do
   gem 'database_cleaner'
   gem 'fabrication'
   gem 'hanami-fabrication'
-  gem 'simplecov', require: false
   gem 'rspec'
   gem 'rspec-hanami'
+  gem 'simplecov', require: false
 end
 
 group :production do
