@@ -32,7 +32,12 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'minitest'
+  gem 'database_cleaner'
+  gem 'fabrication'
+  gem 'hanami-fabrication'
+  gem 'simplecov', require: false
+  gem 'rspec'
+  gem 'rspec-hanami'
 end
 
 group :production do

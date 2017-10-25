@@ -5,10 +5,14 @@ require_relative '../../../../apps/api/controllers/graphql/index'
 
 describe Api::Controllers::Graphql::Index do
   let(:action) { Api::Controllers::Graphql::Index.new }
-  let(:params) { Hash[] }
 
   it 'is successful' do
-    response = action.call(params)
-    response[0].must_equal 200
+    response = action.call(query: 'users{id}', variables: {})
+    expect(response[0]).to eq 200
+  end
+
+  it 'without parameters' do
+    response = action.call({})
+    expect(response[0]).to eq 400
   end
 end

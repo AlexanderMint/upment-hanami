@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api::Controllers::Users
   class Update
     include Hanami::Validations
