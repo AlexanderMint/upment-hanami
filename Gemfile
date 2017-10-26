@@ -32,6 +32,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'codecov', require: false
   gem 'database_cleaner'
   gem 'fabrication'
   gem 'hanami-fabrication'

@@ -2,14 +2,21 @@
 
 ENV['HANAMI_ENV'] ||= 'test'
 
-# Init hanami
-require_relative '../config/environment'
-Hanami.boot
-Hanami::Utils.require!("#{__dir__}/support")
-
 # Init simplecov
 require 'simplecov'
-SimpleCov.start
+require 'codecov'
+require_relative 'support/simplecov_hanami_profile'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+                                                                   SimpleCov::Formatter::HTMLFormatter,
+                                                                   SimpleCov::Formatter::Codecov,
+                                                               ]) if ENV['CODECOV_TOKEN']
+SimpleCov.start 'hanami'
+
+# Init hanami and support
+require_relative '../config/environment'
+Hanami::Utils.require!("#{__dir__}/support")
+Hanami.boot
 
 # Rspec config
 RSpec.configure do |config|

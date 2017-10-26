@@ -15,6 +15,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    codecov (0.1.10)
+      json
+      simplecov
+      url
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     database_cleaner (1.6.1)
@@ -208,6 +212,7 @@ GEM
     tilt (2.0.8)
     transproc (1.0.2)
     unicode-display_width (1.3.0)
+    url (0.3.2)
     url_mount (0.2.1)
       rack
     xpath (2.1.0)
@@ -220,6 +225,7 @@ DEPENDENCIES
   bcrypt
   byebug
   capybara
+  codecov
   database_cleaner
   dotenv (~> 2.0)
   fabrication
