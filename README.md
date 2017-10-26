@@ -1,7 +1,8 @@
 Upment hanami
 -----------------------
 
-[![Coverage Status](https://coveralls.io/repos/github/AlexanderMint/upment-hanami/badge.svg?branch=master)](https://coveralls.io/github/AlexanderMint/upment-hanami?branch=master)
+[![CircleCI](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)](https://circleci.com/gh/AlexanderMint/upment-hanami/tree/master.svg?style=svg)
+[![codecov](https://codecov.io/gh/AlexanderMint/upment-hanami/branch/master/graph/badge.svg)](https://codecov.io/gh/AlexanderMint/upment-hanami)
 
 #### Examples:
 
