@@ -7,10 +7,12 @@ require 'simplecov'
 require 'codecov'
 require_relative 'support/simplecov_hanami_profile'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+if ENV['CODECOV_TOKEN']
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
                                                                    SimpleCov::Formatter::HTMLFormatter,
-                                                                   SimpleCov::Formatter::Codecov,
-                                                               ]) if ENV['CODECOV_TOKEN']
+                                                                   SimpleCov::Formatter::Codecov
+                                                                 ])
+end
 SimpleCov.start 'hanami'
 
 # Init hanami and support
