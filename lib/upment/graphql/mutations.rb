@@ -8,5 +8,6 @@ module Mutations
     field :signIn, Auth::SIGN_IN
 
     field :updateUser, User::UPDATE
+    field :destroyRefreshToken, RefreshToken::DESTROY
   end
 end

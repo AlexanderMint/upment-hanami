@@ -8,7 +8,7 @@ module Queries
     description 'Current user'
 
     type Types::USER_TYPE
-    resolve ->(_object, _args, ctx) do
+    resolve ->(_obj, _args, ctx) do
       ctx[:current_user]
     end
   end

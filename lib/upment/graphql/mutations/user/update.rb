@@ -12,7 +12,7 @@ module Mutations
 
       type Types::USER_TYPE
 
-      resolve ->(_object, args, ctx) do
+      resolve ->(_obj, args, ctx) do
         # Temporarily. There are no roles yet
         data = args.to_h.merge 'id' => ctx[:current_user].id
         Api::Controllers::Users::Update.new(data).call
