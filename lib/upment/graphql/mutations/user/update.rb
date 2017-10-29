@@ -13,9 +13,13 @@ module Mutations
       type Types::USER_TYPE
 
       resolve ->(_obj, args, ctx) do
-        # Temporarily. There are no roles yet
-        data = args.to_h.merge 'id' => ctx[:current_user].id
-        Api::Controllers::Users::Update.new(data).call
+        user = ctx[:current_user]
+
+        if args.id == user.id || (user && RoleRepository.new.admin?(user.id))
+          Api::Controllers::Users::Update.new(args).call
+        else
+          GraphQL::ExecutionError.new('Forbidden')
+        end
       end
     end
   end

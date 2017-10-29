@@ -4,15 +4,22 @@ module Functions
   class FindRecord < GraphQL::Function
     attr_reader :type
 
-    def initialize(model:, type:)
+    def initialize(model:, type:, role: nil)
       @model = model
       @type = type
+      @role = role
     end
 
     argument :id, GraphQL::ID_TYPE
 
-    def call(_obj, args, _ctx)
-      repository.find(args[:id])
+    def call(_obj, args, ctx)
+      user = ctx[:current_user]
+
+      if @role.nil? || (user && RoleRepository.new.with_role?(user.id, @role))
+        repository.find(args.id)
+      else
+        GraphQL::ExecutionError.new('Forbidden')
+      end
     end
 
     private

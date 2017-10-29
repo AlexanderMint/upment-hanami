@@ -6,8 +6,12 @@ module Queries
   SCHEMA ||= GraphQL::ObjectType.define do
     name 'Query'
 
-    field :user, function: Functions::FindRecord.new(model: UserRepository, type: Types::USER_TYPE)
-    field :users, function: Functions::CollectionRecords.new(model: UserRepository, type: Types::USER_TYPE)
+    field :user, function: Functions::FindRecord.new(model: UserRepository,
+                                                     type: Types::USER_TYPE,
+                                                     role: 'admin')
+
+    field :users, function: Functions::CollectionRecords.new(model: UserRepository,
+                                                             type: Types::USER_TYPE)
 
     field :currentUser, CURRENT_USER
   end

@@ -10,8 +10,16 @@ module Mutations
 
       type Types::REFRESH_TOKEN_TYPE
 
-      resolve ->(_obj, args, _ctx) do
-        RefreshTokenRepository.new.delete(args.id)
+      resolve ->(_obj, args, ctx) do
+        user = ctx[:current_user]
+        repository = RefreshTokenRepository.new
+        token = repository.find_by(id: args.id, user_id: user.id)
+
+        if token || (user && RoleRepository.new.admin?(user.id))
+          repository.delete(args.id)
+        else
+          GraphQL::ExecutionError.new('Forbidden')
+        end
       end
     end
   end
