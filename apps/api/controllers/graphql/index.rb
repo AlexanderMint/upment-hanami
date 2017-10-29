@@ -17,7 +17,10 @@ module Api::Controllers::Graphql
 
       status 200, SCHEMA.execute(params[:query],
                                  variables: @variables,
-                                 context: { current_user: jwt.user }).to_json
+                                 context: {
+                                   current_user: jwt.user,
+                                   request: request
+                                 }).to_json
     end
 
     private

@@ -12,16 +12,17 @@ class UserRepository < Hanami::Repository
 
   ### Tokens
 
-  def add_refresh_token(user, token = random_token)
-    assoc(:refresh_tokens, user).add(token: token)
+  def add_refresh_token(user, data = {})
+    data[:token] ||= random_token
+    assoc(:refresh_tokens, user).add(data)
   end
 
-  def create_with_tokens(data)
-    user_changeset = changeset(NewUserChangeset).data(data).map(:add_timestamps)
+  def create_with_tokens(user_data, token_data = {})
+    user_changeset = changeset(NewUserChangeset).data(user_data).map(:add_timestamps)
 
     transaction do
       user = create(user_changeset)
-      token = add_refresh_token(user).token
+      token = add_refresh_token(user, token_data).token
 
       User.new(refresh_token: token, **user)
     end

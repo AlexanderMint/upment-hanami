@@ -8,6 +8,7 @@ module Types
     description 'A refresh token'
 
     field :id, !types.Int
+    field :name, types.String
     field :token, !types.String
     field :createdAt, !DATE_TIME_TYPE, property: :created_at
   end

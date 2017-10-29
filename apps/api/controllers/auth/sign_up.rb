@@ -26,7 +26,7 @@ module Api::Controllers::Auth
     private
 
     def create_user
-      repository.create_with_tokens(validate.output)
+      repository.create_with_tokens(validate.output, name: @options[:request].user_agent)
     rescue Hanami::Model::UniqueConstraintViolationError
       graphql_error(options: { email: ['not unique'] })
     end
