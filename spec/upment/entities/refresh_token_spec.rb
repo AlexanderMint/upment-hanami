@@ -2,6 +2,6 @@
 
 require 'spec_helper'
 
-describe Role do
+describe RefreshToken do
   # place your tests here
 end
