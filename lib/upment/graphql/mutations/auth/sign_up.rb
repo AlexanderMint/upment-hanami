@@ -15,8 +15,8 @@ module Mutations
 
       type Types::USER_TYPE
 
-      resolve ->(_object, args, ctx) do
-        Api::Controllers::Auth::SignUp.new(args, request: ctx[:request]).call
+      resolve ->(_object, args, _ctx) do
+        Api::Controllers::Auth::SignUp.new(args).call
       end
     end
   end

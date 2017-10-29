@@ -4,6 +4,7 @@ module Api::Controllers::Graphql
   class Index
     include Api::Action
     before :restructure_variables
+    before :set_http_request
 
     params do
       required(:query) { filled? & str? }
@@ -17,10 +18,7 @@ module Api::Controllers::Graphql
 
       status 200, SCHEMA.execute(params[:query],
                                  variables: @variables,
-                                 context: {
-                                   current_user: jwt.user,
-                                   request: request
-                                 }).to_json
+                                 context: { current_user: jwt.user }).to_json
     end
 
     private
@@ -33,6 +31,10 @@ module Api::Controllers::Graphql
       # Fix: https://github.com/rmosolgo/graphql-ruby/issues/986#issuecomment-333886921
       @variables = Hanami::Utils::Hash.new(params[:variables] || {})
       @variables.stringify!
+    end
+
+    def set_http_request
+      $http_request = request
     end
 
     def verify_csrf_token?

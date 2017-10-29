@@ -37,7 +37,7 @@ module Api::Controllers::Auth
     end
 
     def create_refresh_token(user)
-      token = repository.add_refresh_token(user, name: @options[:request].user_agent).token
+      token = repository.add_refresh_token(user, name: $http_request.user_agent).token
       User.new(refresh_token: token, **user)
     end
 
