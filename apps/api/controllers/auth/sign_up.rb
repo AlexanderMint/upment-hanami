@@ -26,7 +26,8 @@ module Api::Controllers::Auth
     private
 
     def create_user
-      repository.create_with_tokens(validate.output, name: $http_request.user_agent)
+      # TODO: Delete Global Variables
+      repository.create_with_tokens(validate.output, user_agent: $http_request&.user_agent)
     rescue Hanami::Model::UniqueConstraintViolationError
       graphql_error(options: { email: ['not unique'] })
     end

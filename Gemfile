@@ -8,6 +8,7 @@ gem 'hanami-model', '1.1.0'
 gem 'pg', '0.21'
 gem 'rake', '~> 12.1'
 
+gem 'device_detector'
 gem 'rom-repository'
 
 ### Security ###

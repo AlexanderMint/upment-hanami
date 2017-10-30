@@ -37,7 +37,8 @@ module Api::Controllers::Auth
     end
 
     def create_refresh_token(user)
-      token = repository.add_refresh_token(user, name: $http_request.user_agent).token
+      # TODO: Delete Global Variables
+      token = repository.add_refresh_token(user, user_agent: $http_request&.user_agent).token
       User.new(refresh_token: token, **user)
     end
 

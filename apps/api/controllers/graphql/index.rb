@@ -34,6 +34,7 @@ module Api::Controllers::Graphql
     end
 
     def set_http_request
+      # TODO: Delete Global Variables
       $http_request = request
     end
 
