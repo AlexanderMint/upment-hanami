@@ -33,6 +33,20 @@ query {
 }
 ```
 
+User update
+
+``` ruby
+mutation updateUser($id: Int!, $firstName: String!, $lastName: String!) {
+  updateUser(id: $id, firstName: $firstName, lastName: $lastName) {
+    id
+    firstName
+    lastName
+    email
+  }
+}
+
+```
+
 Sign In
 
 ``` ruby
@@ -72,6 +86,25 @@ query currentUser{
     firstName
     lastName
     email
+    refreshTokens{
+      id
+      browserName
+      deviceName
+      osName
+      userAgent
+      token
+      createdAt
+    }
+  }
+}
+```
+
+Destroy refresh token
+
+``` ruby
+mutation destroyRefreshToken($id: Int!) {
+  destroyRefreshToken(id: $id) {
+    id
   }
 }
 ```
