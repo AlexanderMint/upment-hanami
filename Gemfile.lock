@@ -21,7 +21,7 @@ GEM
       url
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
-    database_cleaner (1.6.1)
+    database_cleaner (1.6.2)
     debug_inspector (0.0.3)
     device_detector (1.0.0)
     diff-lcs (1.3)
