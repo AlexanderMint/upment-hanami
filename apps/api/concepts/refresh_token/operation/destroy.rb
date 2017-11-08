@@ -14,7 +14,7 @@ class RefreshToken
     def destroy!(options, params:, **)
       result = RefreshTokenRepository.new.delete_where(id: params[:id],
                                                        user_id: options[:current_user].id)
-      !result.zero?
+      options[:model] = !result.zero?
     end
 
     def error(options, **)

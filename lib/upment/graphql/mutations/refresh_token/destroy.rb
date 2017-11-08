@@ -8,7 +8,7 @@ module Mutations
 
       argument :id, !types.Int
 
-      type types.Int
+      type types.Boolean
 
       resolve ->(_obj, args, ctx) do
         Trailblazer::GraphQL.new(args, ctx).call(::RefreshToken::Destroy)
