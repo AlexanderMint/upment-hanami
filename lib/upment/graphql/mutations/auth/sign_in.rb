@@ -11,8 +11,8 @@ module Mutations
 
       type Types::USER_TYPE
 
-      resolve ->(_object, args, _ctx) do
-        Api::Controllers::Auth::SignIn.new(args).call
+      resolve ->(_object, args, ctx) do
+        Trailblazer::GraphQL.new(args, ctx).call(::Auth::SignIn)
       end
     end
   end

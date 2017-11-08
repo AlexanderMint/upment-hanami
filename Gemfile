@@ -15,6 +15,9 @@ gem 'rom-repository'
 gem 'bcrypt'
 gem 'jwt'
 
+### Trailblazer
+gem 'trailblazer-operation'
+
 group :development do
   gem 'shotgun'
 end

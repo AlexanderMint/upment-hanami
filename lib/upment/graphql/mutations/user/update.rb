@@ -13,13 +13,7 @@ module Mutations
       type Types::USER_TYPE
 
       resolve ->(_obj, args, ctx) do
-        user = ctx[:current_user]
-
-        if args.id == user.id || (user && RoleRepository.new.admin?(user.id))
-          Api::Controllers::Users::Update.new(args).call
-        else
-          GraphQL::ExecutionError.new('Forbidden')
-        end
+        Trailblazer::GraphQL.new(args, ctx).call(::User::Update)
       end
     end
   end

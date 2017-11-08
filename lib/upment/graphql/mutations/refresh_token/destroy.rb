@@ -8,18 +8,10 @@ module Mutations
 
       argument :id, !types.Int
 
-      type Types::REFRESH_TOKEN_TYPE
+      type types.Int
 
       resolve ->(_obj, args, ctx) do
-        user = ctx[:current_user]
-        repository = RefreshTokenRepository.new
-        token = repository.find_by(id: args.id, user_id: user.id)
-
-        if token || (user && RoleRepository.new.admin?(user.id))
-          repository.delete(args.id)
-        else
-          GraphQL::ExecutionError.new('Forbidden')
-        end
+        Trailblazer::GraphQL.new(args, ctx).call(::RefreshToken::Destroy)
       end
     end
   end

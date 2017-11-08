@@ -17,4 +17,8 @@ class RefreshTokenRepository < Hanami::Repository
   def user_tokens(user)
     refresh_tokens.where(user_id: user.id)
   end
+
+  def delete_where(data)
+    refresh_tokens.where(data).delete
+  end
 end

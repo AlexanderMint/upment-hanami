@@ -1,18 +1,14 @@
 # frozen_string_literal: true
 
-require_relative 'controllers/graphql'
-
 module Api
   class Application < Hanami::Application
     configure do
       root __dir__
+
+      ### LOADING ###
       load_paths << %w[controllers]
 
-      controller.prepare do
-        include Api::GraphQL
-      end
-
-      # HTTP
+      ### HTTP ###
       host 'api.up.com'
       routes 'config/routes'
 
@@ -20,7 +16,7 @@ module Api
       default_response_format :json
       body_parsers :json
 
-      # SECURITY
+      ### SECURITY ###
       security.x_frame_options 'DENY'
       security.x_content_type_options 'nosniff'
       security.x_xss_protection '1; mode=block'
@@ -46,19 +42,22 @@ module Api
       controller.default_headers 'Access-Control-Expose-Headers' => 'Authorization'
     end
 
-    # DEVELOPMENT
+    ### DEVELOPMENT ###
+
     configure :development do
       handle_exceptions false
 
       controller.default_headers 'Access-Control-Allow-Origin' => '*'
     end
 
-    # TEST
+    ### TEST ###
+
     configure :test do
       handle_exceptions false
     end
 
-    # PRODUCTION
+    ### PRODUCTION ###
+
     configure :production do
       scheme 'https'
       host   'api.example.com'

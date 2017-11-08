@@ -6,8 +6,8 @@ module Functions
   class CollectionRecords < GraphQL::Function
     attr_reader :type
 
-    def initialize(model:, type:)
-      @model = model
+    def initialize(resolve:, type:)
+      @resolve = resolve
       @type = self.class.types[!type]
     end
 
@@ -24,18 +24,8 @@ module Functions
       default_value 'asc'
     end
 
-    def call(_obj, args, _ctx)
-      repository.root.limit(args[:limit]).order(Sequel.send(args[:order], :created_at)).call.collection
-    end
-
-    private
-
-    def repository
-      @repository ||= @model.new
-    end
-
-    def type_class
-      "Types::#{type}Type".constantize
+    def call(_obj, args, ctx)
+      Trailblazer::GraphQL.new(args, ctx).call(@resolve)
     end
   end
 end

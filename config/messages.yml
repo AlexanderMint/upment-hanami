@@ -52,3 +52,4 @@ en:
           arg:
             default: "length must be %{size}"
             range: "length must be within %{size_left} - %{size_right}"
+    email?: "must be an email"

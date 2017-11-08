@@ -11,6 +11,7 @@ Rails:
 Metrics/BlockLength:
   Exclude:
     - apps/*/application.rb
+    - spec/**/*_spec.rb
 
 #Metrics/MethodLength:
 #  Max: 30
