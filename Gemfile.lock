@@ -148,7 +148,8 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    public_suffix (3.0.0)
+    public_suffix (3.0.1)
+    puma (3.10.0)
     rack (2.0.3)
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
@@ -245,6 +246,7 @@ DEPENDENCIES
   pry-byebug
   pry-rescue
   pry-stack_explorer
+  puma (~> 3.1)
   rake (~> 12.1)
   rom-repository
   rspec

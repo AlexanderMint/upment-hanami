@@ -6,6 +6,7 @@ gem 'graphql', '~> 1.7'
 gem 'hanami', '1.1.0'
 gem 'hanami-model', '1.1.0'
 gem 'pg', '0.21'
+gem 'puma', '~> 3.1'
 gem 'rake', '~> 12.1'
 
 gem 'device_detector'
@@ -43,8 +44,4 @@ group :test do
   gem 'rspec'
   gem 'rspec-hanami'
   gem 'simplecov', require: false
-end
-
-group :production do
-  # gem 'puma'
 end
