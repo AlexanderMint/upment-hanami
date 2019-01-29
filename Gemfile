@@ -7,7 +7,7 @@ gem 'hanami', '1.1.0'
 gem 'hanami-model', '1.1.0'
 gem 'pg', '0.21'
 gem 'puma', '~> 3.1'
-gem 'rake', '~> 12.1'
+gem 'rake', '~> 12.3'
 
 gem 'device_detector'
 gem 'rom-repository'
@@ -36,7 +36,6 @@ group :test, :development do
 end
 
 group :test do
-  gem 'capybara'
   gem 'codecov', require: false
   gem 'database_cleaner'
   gem 'fabrication'
